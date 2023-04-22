@@ -62,4 +62,9 @@
         Me.Hide()
         frmSoluciones.Show()
     End Sub
+
+    Private Sub TiposToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TiposToolStripMenuItem1.Click
+        Me.Hide()
+        frmTipos.Show()
+    End Sub
 End Class

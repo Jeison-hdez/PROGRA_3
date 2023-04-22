@@ -103,13 +103,13 @@ Partial Class frmMenu
         'TiposToolStripMenuItem1
         '
         Me.TiposToolStripMenuItem1.Name = "TiposToolStripMenuItem1"
-        Me.TiposToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
+        Me.TiposToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.TiposToolStripMenuItem1.Text = "Tipos"
         '
         'DepartamentosToolStripMenuItem2
         '
         Me.DepartamentosToolStripMenuItem2.Name = "DepartamentosToolStripMenuItem2"
-        Me.DepartamentosToolStripMenuItem2.Size = New System.Drawing.Size(155, 22)
+        Me.DepartamentosToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
         Me.DepartamentosToolStripMenuItem2.Text = "Departamentos"
         '
         'ReportesToolStripMenuItem
