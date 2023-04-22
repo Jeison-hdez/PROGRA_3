@@ -75,30 +75,43 @@ Public Class frmDepartamentos
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        conexionBD()
-        'creamos una fila vacia nueva
-        oFila = DataDepartamentos.Tables("departamentos").Rows(i)
-        ' agregamos la fila al datset
-        llenaFilaDepartamentos()
 
-        ' Sincronizamos con el sql
-        AdaptadorDepartamentos.Update(DataDepartamentos, "departamentos")
+        Dim logOpcion As DialogResult
+        logOpcion = MessageBox.Show("Desea modificar el departamento?", " Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If logOpcion = DialogResult.Yes Then
+            conexionBD()
+            'creamos una fila vacia nueva
+            oFila = DataDepartamentos.Tables("departamentos").Rows(i)
+            ' agregamos la fila al datset
+            llenaFilaDepartamentos()
 
-        MessageBox.Show("Departamento actualizado correctamente!!!", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Sincronizamos con el sql
+            AdaptadorDepartamentos.Update(DataDepartamentos, "departamentos")
+
+            MessageBox.Show("Departamento actualizado correctamente!!!", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            txtNombre.Clear()
+            txtCodigo.Clear()
+        End If
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        conexionBD()
-        'creamos una fila vacia nueva
-        oFila = DataDepartamentos.Tables("departamentos").Rows(i)
-        ' agregamos la fila al datset
-        oFila.Delete()
+        Dim logOpcion As DialogResult
+        logOpcion = MessageBox.Show("Desea eliminar el departamento?", " Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If logOpcion = DialogResult.Yes Then
+            conexionBD()
+            'creamos una fila vacia nueva
+            oFila = DataDepartamentos.Tables("departamentos").Rows(i)
+            ' agregamos la fila al datset
+            oFila.Delete()
 
-        ' Sincronizamos con el sql
-        AdaptadorDepartamentos.Update(DataDepartamentos, "departamentos")
+            ' Sincronizamos con el sql
+            AdaptadorDepartamentos.Update(DataDepartamentos, "departamentos")
 
-        MessageBox.Show("Registros Eliminados", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        btnAtras.PerformClick()
+            MessageBox.Show("Registros Eliminados", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            btnAtras.PerformClick()
+            txtNombre.Clear()
+            txtCodigo.Clear()
+        End If
     End Sub
 
     Sub cargarTxt()

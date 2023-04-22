@@ -46,7 +46,7 @@ Partial Class frmSoluciones
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.btnAtras = New System.Windows.Forms.Button()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaIncidencia = New System.Windows.Forms.DateTimePicker()
         Me.txtdescripcion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtdepartamento = New System.Windows.Forms.TextBox()
@@ -60,7 +60,10 @@ Partial Class frmSoluciones
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbEstado = New System.Windows.Forms.ComboBox()
+        Me.lblIncidencia = New System.Windows.Forms.Label()
+        Me.txtIncidencia = New System.Windows.Forms.TextBox()
+        Me.btnConsulta = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -80,8 +83,11 @@ Partial Class frmSoluciones
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.ComboBox1)
-        Me.Panel2.Controls.Add(Me.DateTimePicker1)
+        Me.Panel2.Controls.Add(Me.btnConsulta)
+        Me.Panel2.Controls.Add(Me.lblIncidencia)
+        Me.Panel2.Controls.Add(Me.txtIncidencia)
+        Me.Panel2.Controls.Add(Me.cbEstado)
+        Me.Panel2.Controls.Add(Me.dtpFechaIncidencia)
         Me.Panel2.Controls.Add(Me.txtdescripcion)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.txtdepartamento)
@@ -175,6 +181,7 @@ Partial Class frmSoluciones
         Me.txtmanoo.Location = New System.Drawing.Point(503, 280)
         Me.txtmanoo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtmanoo.Name = "txtmanoo"
+        Me.txtmanoo.ReadOnly = True
         Me.txtmanoo.Size = New System.Drawing.Size(184, 20)
         Me.txtmanoo.TabIndex = 48
         '
@@ -184,7 +191,7 @@ Partial Class frmSoluciones
         Me.btnVolver.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnVolver.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVolver.ForeColor = System.Drawing.Color.White
-        Me.btnVolver.Location = New System.Drawing.Point(728, 188)
+        Me.btnVolver.Location = New System.Drawing.Point(728, 323)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(124, 34)
         Me.btnVolver.TabIndex = 29
@@ -248,6 +255,7 @@ Partial Class frmSoluciones
         Me.txttotal.Location = New System.Drawing.Point(467, 339)
         Me.txttotal.Margin = New System.Windows.Forms.Padding(2)
         Me.txttotal.Name = "txttotal"
+        Me.txttotal.ReadOnly = True
         Me.txttotal.Size = New System.Drawing.Size(220, 20)
         Me.txttotal.TabIndex = 45
         '
@@ -350,18 +358,18 @@ Partial Class frmSoluciones
         Me.btnAtras.Text = "Atras"
         Me.btnAtras.UseVisualStyleBackColor = False
         '
-        'DateTimePicker1
+        'dtpFechaIncidencia
         '
-        Me.DateTimePicker1.Enabled = False
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(102, 243)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(162, 20)
-        Me.DateTimePicker1.TabIndex = 75
+        Me.dtpFechaIncidencia.Enabled = False
+        Me.dtpFechaIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaIncidencia.Location = New System.Drawing.Point(102, 253)
+        Me.dtpFechaIncidencia.Name = "dtpFechaIncidencia"
+        Me.dtpFechaIncidencia.Size = New System.Drawing.Size(162, 20)
+        Me.dtpFechaIncidencia.TabIndex = 75
         '
         'txtdescripcion
         '
-        Me.txtdescripcion.Location = New System.Drawing.Point(124, 282)
+        Me.txtdescripcion.Location = New System.Drawing.Point(124, 292)
         Me.txtdescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtdescripcion.MaxLength = 1000
         Me.txtdescripcion.Name = "txtdescripcion"
@@ -375,7 +383,7 @@ Partial Class frmSoluciones
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(15, 279)
+        Me.Label2.Location = New System.Drawing.Point(15, 289)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(113, 20)
         Me.Label2.TabIndex = 73
@@ -383,7 +391,7 @@ Partial Class frmSoluciones
         '
         'txtdepartamento
         '
-        Me.txtdepartamento.Location = New System.Drawing.Point(140, 82)
+        Me.txtdepartamento.Location = New System.Drawing.Point(140, 92)
         Me.txtdepartamento.Margin = New System.Windows.Forms.Padding(2)
         Me.txtdepartamento.Multiline = True
         Me.txtdepartamento.Name = "txtdepartamento"
@@ -397,7 +405,7 @@ Partial Class frmSoluciones
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(15, 40)
+        Me.Label1.Location = New System.Drawing.Point(15, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 20)
         Me.Label1.TabIndex = 67
@@ -405,7 +413,7 @@ Partial Class frmSoluciones
         '
         'txttipo
         '
-        Me.txttipo.Location = New System.Drawing.Point(88, 40)
+        Me.txttipo.Location = New System.Drawing.Point(88, 50)
         Me.txttipo.Margin = New System.Windows.Forms.Padding(2)
         Me.txttipo.Name = "txttipo"
         Me.txttipo.ReadOnly = True
@@ -414,7 +422,7 @@ Partial Class frmSoluciones
         '
         'txtusuario
         '
-        Me.txtusuario.Location = New System.Drawing.Point(102, 121)
+        Me.txtusuario.Location = New System.Drawing.Point(102, 131)
         Me.txtusuario.Margin = New System.Windows.Forms.Padding(2)
         Me.txtusuario.MaxLength = 50
         Me.txtusuario.Name = "txtusuario"
@@ -424,7 +432,7 @@ Partial Class frmSoluciones
         '
         'txtcorreo
         '
-        Me.txtcorreo.Location = New System.Drawing.Point(115, 164)
+        Me.txtcorreo.Location = New System.Drawing.Point(115, 174)
         Me.txtcorreo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtcorreo.MaxLength = 50
         Me.txtcorreo.Name = "txtcorreo"
@@ -434,7 +442,7 @@ Partial Class frmSoluciones
         '
         'txttelefono
         '
-        Me.txttelefono.Location = New System.Drawing.Point(102, 210)
+        Me.txttelefono.Location = New System.Drawing.Point(102, 220)
         Me.txttelefono.Margin = New System.Windows.Forms.Padding(2)
         Me.txttelefono.MaxLength = 10
         Me.txttelefono.Name = "txttelefono"
@@ -448,7 +456,7 @@ Partial Class frmSoluciones
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label7.Location = New System.Drawing.Point(15, 79)
+        Me.Label7.Location = New System.Drawing.Point(15, 89)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(134, 20)
         Me.Label7.TabIndex = 66
@@ -460,7 +468,7 @@ Partial Class frmSoluciones
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label6.Location = New System.Drawing.Point(15, 121)
+        Me.Label6.Location = New System.Drawing.Point(15, 131)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(81, 20)
         Me.Label6.TabIndex = 65
@@ -472,7 +480,7 @@ Partial Class frmSoluciones
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(15, 164)
+        Me.Label5.Location = New System.Drawing.Point(15, 174)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(73, 20)
         Me.Label5.TabIndex = 64
@@ -484,7 +492,7 @@ Partial Class frmSoluciones
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(15, 206)
+        Me.Label4.Location = New System.Drawing.Point(15, 216)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(89, 20)
         Me.Label4.TabIndex = 63
@@ -496,20 +504,54 @@ Partial Class frmSoluciones
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label3.Location = New System.Drawing.Point(15, 244)
+        Me.Label3.Location = New System.Drawing.Point(15, 254)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 20)
         Me.Label3.TabIndex = 62
         Me.Label3.Text = "Fecha :"
         '
-        'ComboBox1
+        'cbEstado
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Cerrado", "En Proceso", "Espera de parte", "Espera de Usuario"})
-        Me.ComboBox1.Location = New System.Drawing.Point(525, 236)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(162, 21)
-        Me.ComboBox1.TabIndex = 76
+        Me.cbEstado.FormattingEnabled = True
+        Me.cbEstado.Items.AddRange(New Object() {"Seleccione", "Cerrado", "En Proceso", "Espera de parte", "Espera de Usuario"})
+        Me.cbEstado.Location = New System.Drawing.Point(525, 236)
+        Me.cbEstado.Name = "cbEstado"
+        Me.cbEstado.Size = New System.Drawing.Size(162, 21)
+        Me.cbEstado.TabIndex = 76
+        '
+        'lblIncidencia
+        '
+        Me.lblIncidencia.AutoSize = True
+        Me.lblIncidencia.BackColor = System.Drawing.Color.Transparent
+        Me.lblIncidencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIncidencia.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblIncidencia.Location = New System.Drawing.Point(15, 16)
+        Me.lblIncidencia.Name = "lblIncidencia"
+        Me.lblIncidencia.Size = New System.Drawing.Size(96, 20)
+        Me.lblIncidencia.TabIndex = 77
+        Me.lblIncidencia.Text = "Incidencia:"
+        '
+        'txtIncidencia
+        '
+        Me.txtIncidencia.Location = New System.Drawing.Point(114, 18)
+        Me.txtIncidencia.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtIncidencia.Name = "txtIncidencia"
+        Me.txtIncidencia.Size = New System.Drawing.Size(196, 20)
+        Me.txtIncidencia.TabIndex = 78
+        '
+        'btnConsulta
+        '
+        Me.btnConsulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnConsulta.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsulta.ForeColor = System.Drawing.Color.White
+        Me.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnConsulta.Location = New System.Drawing.Point(728, 180)
+        Me.btnConsulta.Name = "btnConsulta"
+        Me.btnConsulta.Size = New System.Drawing.Size(124, 34)
+        Me.btnConsulta.TabIndex = 79
+        Me.btnConsulta.Text = "Consultar"
+        Me.btnConsulta.UseVisualStyleBackColor = False
         '
         'frmSoluciones
         '
@@ -552,7 +594,7 @@ Partial Class frmSoluciones
     Friend WithEvents Label14 As Label
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents btnAtras As Button
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpFechaIncidencia As DateTimePicker
     Friend WithEvents txtdescripcion As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtdepartamento As TextBox
@@ -566,5 +608,8 @@ Partial Class frmSoluciones
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbEstado As ComboBox
+    Friend WithEvents btnConsulta As Button
+    Friend WithEvents lblIncidencia As Label
+    Friend WithEvents txtIncidencia As TextBox
 End Class

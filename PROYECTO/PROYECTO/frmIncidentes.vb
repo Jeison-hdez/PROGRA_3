@@ -68,7 +68,7 @@ Public Class frmIncidentes
         metCOnexion()
         oFila = Dataincidentes.Tables("Incidentes").NewRow()
 
-        oFila("Tipo") = cbTipo.SelectedItem
+        oFila("Tipo") = cbTipo.SelectedValue
         oFila("Departamento") = cbDepartamentos.SelectedValue
         oFila("Usuario") = txtusuario.Text
         oFila("Correo") = txtcorreo.Text
