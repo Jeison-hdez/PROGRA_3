@@ -24,12 +24,15 @@ Partial Class frmIncidentes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmIncidentes))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.lblTitulo = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.btnIngresar = New System.Windows.Forms.Button()
         Me.txtdescripcion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtdepartamento = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txttipo = New System.Windows.Forms.TextBox()
         Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.txtcorreo = New System.Windows.Forms.TextBox()
         Me.txttelefono = New System.Windows.Forms.TextBox()
@@ -39,14 +42,11 @@ Partial Class frmIncidentes
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
-        Me.btnIngresar = New System.Windows.Forms.Button()
-        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lblTitulo = New System.Windows.Forms.Label()
+        Me.cbTipo = New System.Windows.Forms.ComboBox()
+        Me.cbDepartamentos = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -62,17 +62,44 @@ Partial Class frmIncidentes
         Me.Panel1.Size = New System.Drawing.Size(800, 519)
         Me.Panel1.TabIndex = 0
         '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.lblTitulo)
+        Me.Panel3.Location = New System.Drawing.Point(36, 12)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(728, 52)
+        Me.Panel3.TabIndex = 2
+        '
+        'lblTitulo
+        '
+        Me.lblTitulo.AutoSize = True
+        Me.lblTitulo.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitulo.Font = New System.Drawing.Font("Malgun Gothic", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitulo.ForeColor = System.Drawing.Color.DarkSlateGray
+        Me.lblTitulo.Location = New System.Drawing.Point(9, 3)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.Size = New System.Drawing.Size(146, 37)
+        Me.lblTitulo.TabIndex = 0
+        Me.lblTitulo.Text = "Incidentes"
+        '
         'Panel2
         '
+        Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.AutoSize = True
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.cbDepartamentos)
+        Me.Panel2.Controls.Add(Me.cbTipo)
         Me.Panel2.Controls.Add(Me.btnLimpiar)
         Me.Panel2.Controls.Add(Me.dtpFecha)
         Me.Panel2.Controls.Add(Me.btnIngresar)
         Me.Panel2.Controls.Add(Me.txtdescripcion)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.txtdepartamento)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.txttipo)
         Me.Panel2.Controls.Add(Me.txtusuario)
         Me.Panel2.Controls.Add(Me.txtcorreo)
         Me.Panel2.Controls.Add(Me.txttelefono)
@@ -86,6 +113,43 @@ Partial Class frmIncidentes
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(728, 409)
         Me.Panel2.TabIndex = 0
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.ForeColor = System.Drawing.Color.White
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLimpiar.Location = New System.Drawing.Point(509, 85)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(145, 28)
+        Me.btnLimpiar.TabIndex = 62
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.UseVisualStyleBackColor = False
+        '
+        'dtpFecha
+        '
+        Me.dtpFecha.Location = New System.Drawing.Point(136, 246)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(271, 20)
+        Me.dtpFecha.TabIndex = 61
+        '
+        'btnIngresar
+        '
+        Me.btnIngresar.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnIngresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIngresar.ForeColor = System.Drawing.Color.White
+        Me.btnIngresar.Image = CType(resources.GetObject("btnIngresar.Image"), System.Drawing.Image)
+        Me.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnIngresar.Location = New System.Drawing.Point(509, 43)
+        Me.btnIngresar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnIngresar.Name = "btnIngresar"
+        Me.btnIngresar.Size = New System.Drawing.Size(145, 28)
+        Me.btnIngresar.TabIndex = 60
+        Me.btnIngresar.Text = "Ingresar"
+        Me.btnIngresar.UseVisualStyleBackColor = False
         '
         'txtdescripcion
         '
@@ -108,15 +172,6 @@ Partial Class frmIncidentes
         Me.Label2.TabIndex = 58
         Me.Label2.Text = "Descripcion :"
         '
-        'txtdepartamento
-        '
-        Me.txtdepartamento.Location = New System.Drawing.Point(174, 85)
-        Me.txtdepartamento.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtdepartamento.Multiline = True
-        Me.txtdepartamento.Name = "txtdepartamento"
-        Me.txtdepartamento.Size = New System.Drawing.Size(233, 19)
-        Me.txtdepartamento.TabIndex = 57
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -128,14 +183,6 @@ Partial Class frmIncidentes
         Me.Label1.Size = New System.Drawing.Size(53, 20)
         Me.Label1.TabIndex = 51
         Me.Label1.Text = "Tipo :"
-        '
-        'txttipo
-        '
-        Me.txttipo.Location = New System.Drawing.Point(122, 43)
-        Me.txttipo.Margin = New System.Windows.Forms.Padding(2)
-        Me.txttipo.Name = "txttipo"
-        Me.txttipo.Size = New System.Drawing.Size(285, 20)
-        Me.txttipo.TabIndex = 52
         '
         'txtusuario
         '
@@ -237,65 +284,21 @@ Partial Class frmIncidentes
         Me.btnVolver.Text = "Volver a Menu"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
-        'btnIngresar
+        'cbTipo
         '
-        Me.btnIngresar.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.btnIngresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIngresar.ForeColor = System.Drawing.Color.White
-        Me.btnIngresar.Image = CType(resources.GetObject("btnIngresar.Image"), System.Drawing.Image)
-        Me.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnIngresar.Location = New System.Drawing.Point(509, 43)
-        Me.btnIngresar.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnIngresar.Name = "btnIngresar"
-        Me.btnIngresar.Size = New System.Drawing.Size(145, 28)
-        Me.btnIngresar.TabIndex = 60
-        Me.btnIngresar.Text = "Ingresar"
-        Me.btnIngresar.UseVisualStyleBackColor = False
+        Me.cbTipo.FormattingEnabled = True
+        Me.cbTipo.Location = New System.Drawing.Point(136, 43)
+        Me.cbTipo.Name = "cbTipo"
+        Me.cbTipo.Size = New System.Drawing.Size(271, 21)
+        Me.cbTipo.TabIndex = 63
         '
-        'dtpFecha
+        'cbDepartamentos
         '
-        Me.dtpFecha.Location = New System.Drawing.Point(136, 246)
-        Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(271, 20)
-        Me.dtpFecha.TabIndex = 61
-        '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.ForeColor = System.Drawing.Color.White
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiar.Location = New System.Drawing.Point(509, 85)
-        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(145, 28)
-        Me.btnLimpiar.TabIndex = 62
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.UseVisualStyleBackColor = False
-        '
-        'Panel3
-        '
-        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.lblTitulo)
-        Me.Panel3.Location = New System.Drawing.Point(36, 12)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(728, 52)
-        Me.Panel3.TabIndex = 2
-        '
-        'lblTitulo
-        '
-        Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitulo.Font = New System.Drawing.Font("Malgun Gothic", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.lblTitulo.Location = New System.Drawing.Point(9, 3)
-        Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(146, 37)
-        Me.lblTitulo.TabIndex = 0
-        Me.lblTitulo.Text = "Incidentes"
+        Me.cbDepartamentos.FormattingEnabled = True
+        Me.cbDepartamentos.Location = New System.Drawing.Point(189, 84)
+        Me.cbDepartamentos.Name = "cbDepartamentos"
+        Me.cbDepartamentos.Size = New System.Drawing.Size(218, 21)
+        Me.cbDepartamentos.TabIndex = 64
         '
         'frmIncidentes
         '
@@ -308,10 +311,11 @@ Partial Class frmIncidentes
         Me.Text = "frmIncidentes"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -321,9 +325,7 @@ Partial Class frmIncidentes
     Friend WithEvents Panel2 As Panel
     Friend WithEvents txtdescripcion As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtdepartamento As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents txttipo As TextBox
     Friend WithEvents txtusuario As TextBox
     Friend WithEvents txtcorreo As TextBox
     Friend WithEvents txttelefono As TextBox
@@ -338,4 +340,6 @@ Partial Class frmIncidentes
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblTitulo As Label
+    Friend WithEvents cbDepartamentos As ComboBox
+    Friend WithEvents cbTipo As ComboBox
 End Class

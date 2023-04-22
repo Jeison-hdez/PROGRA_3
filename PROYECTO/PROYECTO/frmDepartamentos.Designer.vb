@@ -196,6 +196,7 @@ Partial Class frmDepartamentos
         '
         Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNombre.Location = New System.Drawing.Point(100, 60)
+        Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(194, 20)
         Me.txtNombre.TabIndex = 4

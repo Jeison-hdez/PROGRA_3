@@ -38,6 +38,8 @@
     Private Sub IncidentesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IncidentesToolStripMenuItem1.Click
         Me.Hide()
         frmIncidentes.Show()
+        frmIncidentes.Departamentos()
+        frmIncidentes.Tipos()
     End Sub
 
     Private Sub ReportesToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ReportesToolStripMenuItem.Click

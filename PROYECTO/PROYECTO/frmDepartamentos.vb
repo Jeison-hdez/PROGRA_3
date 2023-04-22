@@ -30,7 +30,7 @@ Public Class frmDepartamentos
         AdaptadorDepartamentos.Fill(DataDepartamentos, "departamentos")
         '--------------------------
 
-        MessageBox.Show("Conexion exitosa!!!", " Conexion ", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'MessageBox.Show("Conexion exitosa!!!", " Conexion ", MessageBoxButtons.OK, MessageBoxIcon.Information)
         conexionDepartamentos.Close()
     End Sub
 
@@ -55,7 +55,7 @@ Public Class frmDepartamentos
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-
+        conexionBD()
         'creamos una fila vacia nueva
         oFila = DataDepartamentos.Tables("departamentos").NewRow()
         ' agregamos la fila al datset
@@ -66,14 +66,16 @@ Public Class frmDepartamentos
         AdaptadorDepartamentos.Update(DataDepartamentos, "departamentos")
 
         MessageBox.Show("Departamentos almacenados correctamente!!", "Almacenar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        txtNombre.Clear()
     End Sub
 
     Sub llenaFilaDepartamentos()
         'llenamos uno a uno las celdas de la fila
-        oFila("cedula") = txtNombre.Text
+        oFila("nombre") = txtNombre.Text
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        conexionBD()
         'creamos una fila vacia nueva
         oFila = DataDepartamentos.Tables("departamentos").Rows(i)
         ' agregamos la fila al datset
@@ -86,6 +88,7 @@ Public Class frmDepartamentos
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        conexionBD()
         'creamos una fila vacia nueva
         oFila = DataDepartamentos.Tables("departamentos").Rows(i)
         ' agregamos la fila al datset
@@ -104,6 +107,7 @@ Public Class frmDepartamentos
     End Sub
 
     Private Sub btnAdelante_Click(sender As Object, e As EventArgs) Handles btnAdelante.Click
+        conexionBD()
         i = i + 1
         Try
             oFila = DataDepartamentos.Tables("departamentos").Rows(i)
@@ -115,6 +119,7 @@ Public Class frmDepartamentos
     End Sub
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
+        conexionBD()
         i = i - 1
         Try
             oFila = DataDepartamentos.Tables("departamentos").Rows(i)

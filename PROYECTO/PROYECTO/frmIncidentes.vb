@@ -7,6 +7,33 @@ Public Class frmIncidentes
     Dim oFila As DataRow
     Dim i As Integer
 
+    Dim AdaptadorDepartamentos As SqlDataAdapter
+    Dim DataDepartamentos As New DataSet
+
+    Dim AdaptadorTipos As SqlDataAdapter
+    Dim DataTipos As New DataSet
+
+    Sub tiposConexion()
+        Dim conexionincidentes As SqlConnection = New SqlConnection()
+        Dim strconexion As String = "data source=DESKTOP-MPLP2PA\SQLEXPRESS;
+                       initial catalog=servicios;integrated security=true"
+        conexionincidentes.ConnectionString = strconexion
+        conexionincidentes.Open()
+
+        AdaptadorDepartamentos = New SqlDataAdapter("select * from departamentos", conexionincidentes)
+        AdaptadorTipos = New SqlDataAdapter("select * from Tipos", conexionincidentes)
+
+        Dim Command1 As SqlCommandBuilder = New SqlCommandBuilder(AdaptadorDepartamentos)
+        Dim Command2 As SqlCommandBuilder = New SqlCommandBuilder(AdaptadorTipos)
+
+        DataDepartamentos = New DataSet
+        DataTipos = New DataSet
+
+        AdaptadorDepartamentos.Fill(DataDepartamentos, "departamentos")
+        AdaptadorTipos.Fill(DataTipos, "Tipos")
+
+    End Sub
+
     Sub metCOnexion()
         Dim conexionincidentes As SqlConnection = New SqlConnection()
         Dim strconexion As String = "data source=DESKTOP-MPLP2PA\SQLEXPRESS;
@@ -41,8 +68,8 @@ Public Class frmIncidentes
         metCOnexion()
         oFila = Dataincidentes.Tables("Incidentes").NewRow()
 
-        oFila("Tipo") = 1
-        oFila("Departamento") = 1
+        oFila("Tipo") = cbTipo.SelectedItem
+        oFila("Departamento") = cbDepartamentos.SelectedValue
         oFila("Usuario") = txtusuario.Text
         oFila("Correo") = txtcorreo.Text
         oFila("Telefono") = txttelefono.Text
@@ -67,5 +94,25 @@ Public Class frmIncidentes
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         Limpiar()
+    End Sub
+
+    Private Sub frmIncidentes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Tipos()
+        Departamentos()
+    End Sub
+
+    Sub Tipos()
+        tiposConexion()
+        cbTipo.DataSource = DataTipos.Tables("Tipos")
+        cbTipo.DisplayMember = "Descripcion"
+        cbTipo.ValueMember = "id"
+    End Sub
+
+    Sub Departamentos()
+        tiposConexion()
+        cbDepartamentos.DataSource = DataDepartamentos.Tables("departamentos")
+        cbDepartamentos.DisplayMember = "nombre"
+        cbDepartamentos.ValueMember = "Id_siesta"
     End Sub
 End Class
