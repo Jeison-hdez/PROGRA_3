@@ -79,13 +79,13 @@
     <Compile Include="frmDepartamentos.vb">
       <SubType>Form</SubType>
     </Compile>
-     <Compile Include="frmIncidentes.Designer.vb">
+    <Compile Include="frmIncidentes.Designer.vb">
       <DependentUpon>frmIncidentes.vb</DependentUpon>
     </Compile>
     <Compile Include="frmIncidentes.vb">
       <SubType>Form</SubType>
     </Compile>
-     <Compile Include="frmSoluciones.Designer.vb">
+    <Compile Include="frmSoluciones.Designer.vb">
       <DependentUpon>frmSoluciones.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSoluciones.vb">
@@ -101,6 +101,12 @@
       <DependentUpon>frmMenu.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmtipos.Designer.vb">
+      <DependentUpon>frmtipos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmtipos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSoluciones.resx">
       <DependentUpon>frmSoluciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmtipos.resx">
+      <DependentUpon>frmtipos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
