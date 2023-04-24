@@ -27,6 +27,8 @@ Partial Class frmIncidentes
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cbDepartamentos = New System.Windows.Forms.ComboBox()
+        Me.cbTipo = New System.Windows.Forms.ComboBox()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.btnIngresar = New System.Windows.Forms.Button()
@@ -42,8 +44,6 @@ Partial Class frmIncidentes
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
-        Me.cbTipo = New System.Windows.Forms.ComboBox()
-        Me.cbDepartamentos = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -113,6 +113,22 @@ Partial Class frmIncidentes
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(728, 409)
         Me.Panel2.TabIndex = 0
+        '
+        'cbDepartamentos
+        '
+        Me.cbDepartamentos.FormattingEnabled = True
+        Me.cbDepartamentos.Location = New System.Drawing.Point(189, 84)
+        Me.cbDepartamentos.Name = "cbDepartamentos"
+        Me.cbDepartamentos.Size = New System.Drawing.Size(218, 21)
+        Me.cbDepartamentos.TabIndex = 64
+        '
+        'cbTipo
+        '
+        Me.cbTipo.FormattingEnabled = True
+        Me.cbTipo.Location = New System.Drawing.Point(136, 43)
+        Me.cbTipo.Name = "cbTipo"
+        Me.cbTipo.Size = New System.Drawing.Size(271, 21)
+        Me.cbTipo.TabIndex = 63
         '
         'btnLimpiar
         '
@@ -283,22 +299,6 @@ Partial Class frmIncidentes
         Me.btnVolver.TabIndex = 45
         Me.btnVolver.Text = "Volver a Menu"
         Me.btnVolver.UseVisualStyleBackColor = False
-        '
-        'cbTipo
-        '
-        Me.cbTipo.FormattingEnabled = True
-        Me.cbTipo.Location = New System.Drawing.Point(136, 43)
-        Me.cbTipo.Name = "cbTipo"
-        Me.cbTipo.Size = New System.Drawing.Size(271, 21)
-        Me.cbTipo.TabIndex = 63
-        '
-        'cbDepartamentos
-        '
-        Me.cbDepartamentos.FormattingEnabled = True
-        Me.cbDepartamentos.Location = New System.Drawing.Point(189, 84)
-        Me.cbDepartamentos.Name = "cbDepartamentos"
-        Me.cbDepartamentos.Size = New System.Drawing.Size(218, 21)
-        Me.cbDepartamentos.TabIndex = 64
         '
         'frmIncidentes
         '

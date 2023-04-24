@@ -64,24 +64,28 @@ Public Class frmIncidentes
     End Sub
 
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
-        'Adaptadorincidentes.Fill(Dataincidentes, "incidentes")
-        metCOnexion()
-        oFila = Dataincidentes.Tables("Incidentes").NewRow()
+        Try
+            'Adaptadorincidentes.Fill(Dataincidentes, "incidentes")
+            metCOnexion()
+            oFila = Dataincidentes.Tables("Incidentes").NewRow()
 
-        oFila("Tipo") = cbTipo.SelectedValue
-        oFila("Departamento") = cbDepartamentos.SelectedValue
-        oFila("Usuario") = txtusuario.Text
-        oFila("Correo") = txtcorreo.Text
-        oFila("Telefono") = txttelefono.Text
-        oFila("fecha") = Convert.ToDateTime(dtpFecha.Text)
-        oFila("Descripcion") = txtdescripcion.Text
-        oFila("Status") = "Pendiente"
-        Dataincidentes.Tables("incidentes").Rows.Add(oFila)
-        Adaptadorincidentes.Update(Dataincidentes, "Incidentes")
+            oFila("Tipo") = cbTipo.SelectedValue
+            oFila("Departamento") = cbDepartamentos.SelectedValue
+            oFila("Usuario") = txtusuario.Text
+            oFila("Correo") = txtcorreo.Text
+            oFila("Telefono") = txttelefono.Text
+            oFila("fecha") = Convert.ToDateTime(dtpFecha.Text)
+            oFila("Descripcion") = txtdescripcion.Text
+            oFila("Status") = "Pendiente"
+            Dataincidentes.Tables("incidentes").Rows.Add(oFila)
+            Adaptadorincidentes.Update(Dataincidentes, "Incidentes")
 
-        MessageBox.Show("Registros almacenados", "Guardar",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Limpiar()
+            MessageBox.Show("Registros almacenados", "Guardar",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Limpiar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, " Alerta!!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Sub Limpiar()

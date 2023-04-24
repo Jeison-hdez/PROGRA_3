@@ -71,16 +71,21 @@ Public Class frmSoluciones
     End Sub
 
     Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
-        metCOnexion()
-        'creamos una fila vacia nueva
-        oFila = Dataincidentes.Tables("Incidentes").Rows(i)
-        ' agregamos la fila al datset
-        llenaFilaSoluciones()
-        ' Sincronizamos con el sql
-        Adaptadorincidentes.Update(Dataincidentes, "Incidentes")
+        Try
+            metCOnexion()
+            'creamos una fila vacia nueva
+            oFila = Dataincidentes.Tables("Incidentes").Rows(i)
+            ' agregamos la fila al datset
+            llenaFilaSoluciones()
+            ' Sincronizamos con el sql
+            Adaptadorincidentes.Update(Dataincidentes, "Incidentes")
 
-        MessageBox.Show("Incidentes actualizado correctamente!!!", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Limpiar()
+            MessageBox.Show("Incidentes actualizado correctamente!!!", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Limpiar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, " Alerta!!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click

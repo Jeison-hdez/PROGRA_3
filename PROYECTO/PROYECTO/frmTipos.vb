@@ -36,19 +36,24 @@ Public Class frmTipos
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
-        conexionBD()
-        'creamos una fila vacia nueva
-        oFila = DataTipos.Tables("tipos").NewRow()
-        ' agregamos la fila al datset
-        llenaFilaTipos()
+        Try
+            conexionBD()
+            'creamos una fila vacia nueva
+            oFila = DataTipos.Tables("tipos").NewRow()
+            ' agregamos la fila al datset
+            llenaFilaTipos()
 
-        DataTipos.Tables("tipos").Rows.Add(oFila)
-        ' Sincronizamos con el sql
-        AdaptadorTipos.Update(DataTipos, "tipos")
+            DataTipos.Tables("tipos").Rows.Add(oFila)
+            ' Sincronizamos con el sql
+            AdaptadorTipos.Update(DataTipos, "tipos")
 
-        MessageBox.Show("Departamentos almacenados correctamente!!", "Almacenar", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        txtNombre.Clear()
-        txtCodigo.Clear()
+            MessageBox.Show("Departamentos almacenados correctamente!!", "Almacenar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            txtNombre.Clear()
+            txtCodigo.Clear()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, " Alerta!!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
@@ -66,42 +71,52 @@ Public Class frmTipos
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        Dim logOpcion As DialogResult
-        logOpcion = MessageBox.Show("Desea modificar los tipos?", " Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If logOpcion = DialogResult.Yes Then
-            conexionBD()
-            'creamos una fila vacia nueva
-            oFila = DataTipos.Tables("tipos").Rows(i)
-            ' agregamos la fila al datset
-            llenaFilaTipos()
+        Try
+            Dim logOpcion As DialogResult
+            logOpcion = MessageBox.Show("Desea modificar los tipos?", " Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If logOpcion = DialogResult.Yes Then
+                conexionBD()
+                'creamos una fila vacia nueva
+                oFila = DataTipos.Tables("tipos").Rows(i)
+                ' agregamos la fila al datset
+                llenaFilaTipos()
 
-            ' Sincronizamos con el sql
-            AdaptadorTipos.Update(DataTipos, "tipos")
+                ' Sincronizamos con el sql
+                AdaptadorTipos.Update(DataTipos, "tipos")
 
-            MessageBox.Show("Tipos actualizado correctamente!!!", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            txtNombre.Clear()
-            txtCodigo.Clear()
-        End If
+                MessageBox.Show("Tipos actualizado correctamente!!!", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtNombre.Clear()
+                txtCodigo.Clear()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, " Alerta!!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
     Private Sub brnEliminar_Click(sender As Object, e As EventArgs) Handles brnEliminar.Click
-        Dim logOpcion As DialogResult
-        logOpcion = MessageBox.Show("Desea eliminar los tipos?", " Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If logOpcion = DialogResult.Yes Then
-            conexionBD()
-            'creamos una fila vacia nueva
-            oFila = DataTipos.Tables("tipos").Rows(i)
-            ' agregamos la fila al datset
-            oFila.Delete()
+        Try
+            Dim logOpcion As DialogResult
+            logOpcion = MessageBox.Show("Desea eliminar los tipos?", " Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If logOpcion = DialogResult.Yes Then
+                conexionBD()
+                'creamos una fila vacia nueva
+                oFila = DataTipos.Tables("tipos").Rows(i)
+                ' agregamos la fila al datset
+                oFila.Delete()
 
-            ' Sincronizamos con el sql
-            AdaptadorTipos.Update(DataTipos, "tipos")
+                ' Sincronizamos con el sql
+                AdaptadorTipos.Update(DataTipos, "tipos")
 
-            MessageBox.Show("Registros Eliminados", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            btnAtras.PerformClick()
-            txtNombre.Clear()
-            txtCodigo.Clear()
-        End If
+                MessageBox.Show("Registros Eliminados", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                btnAtras.PerformClick()
+                txtNombre.Clear()
+                txtCodigo.Clear()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, " Alerta!!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
     Private Sub btnAdelante_Click(sender As Object, e As EventArgs) Handles btnAdelante.Click
